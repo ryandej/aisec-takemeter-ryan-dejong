@@ -1,5 +1,7 @@
 # AI Security TakeMeter
+
 Author: Ryan DeJong
+
 Description: a fine-tuned classifier for AI security engineering discourse.
 
 ## Project Summary
