@@ -2,6 +2,15 @@
 
 Author: [Ryan DeJong](https://github.com/ryandej)
 
+## Reviewer TL;DR
+
+- Built an end-to-end AI security text-classification workflow using 218 public Reddit examples.
+- Designed a four-label taxonomy for AI security discussions: concepts, tools/controls, attack/testing tactics, and low-signal content.
+- Validated the dataset with a Python script, fine-tuned DistilBERT, and compared it against a stronger Groq baseline.
+- Used Claude as a planning, debugging, documentation, and reflection partner while keeping final responsibility for project decisions and evaluation.
+- Found that the fine-tuned model underperformed the baseline, then analyzed why it failed and what safeguards would be needed.
+- Main takeaway: AI workflows need clear labels, evaluation, confidence thresholds, and human review before real-world use.
+
 ## Overview
 
 This project is a practical AI security classification study. I built a dataset of public AI security discussions, trained a small machine learning model to sort those discussions into categories, and compared its performance against a stronger AI model used as a baseline.
