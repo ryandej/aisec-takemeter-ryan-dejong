@@ -10,9 +10,23 @@ The project focuses on AI security topics, including prompt injection, RAG secur
 
 The goal was to understand how well a trained classifier could recognize different types of AI security discussion, where it made mistakes, and what those mistakes reveal about model behavior, data quality, and label design.
 
+## Project Origin and My Contributions
+
+This project began from a CodePath AI Engineering assignment, but I customized it into a more focused AI Security Engineering project. My main contributions were selecting the AI security domain, designing the four-label taxonomy, building the labeled dataset, writing and using the validation workflow, running the fine-tuning and baseline comparison, analyzing model failures, and documenting the results in a way that could be reviewed by both technical and non-technical readers.
+
+I treated the project as more than a model-training exercise. The main goal was to understand whether an AI workflow could reliably classify real public discussions about AI security, where that workflow failed, and what safeguards would be needed before using something similar in a real organization.
+
 ## Skills Demonstrated
 
 This project demonstrates hands-on experience with:
+
+* **Practical AI Workflow Design** - built an end-to-end workflow from problem definition to dataset creation, model training, baseline comparison, evaluation, and written reflection.
+
+* **Responsible AI Judgment** - documented the model’s limitations, kept the negative result visible, and explained why low-confidence outputs should require human review instead of automatic acceptance.
+
+* **Plain-Language Technical Communication** - wrote the README so a reviewer could understand the goal, process, results, failure patterns, and next steps without needing to inspect every notebook cell.
+
+* **Mission-Driven AI Relevance** - connected the classifier pattern to real organizational use cases such as intake triage, support-ticket routing, community-feedback analysis, and program-document review.
 
 * **AI Security Engineering** - worked with examples involving prompt injection, RAG security, AI agents, tool misuse, guardrail bypasses, red-team testing, and security controls.
 
@@ -48,6 +62,14 @@ The four labels are:
 * `low_signal_or_general` - covers vague, broad, opinion-based, or low-information discussion.
 
 I created a labeled dataset from public Reddit discussions, validated the data locally with a Python script, fine-tuned a DistilBERT classifier in Google Colab, compared it against a stronger AI baseline, and analyzed the model’s failure patterns.
+
+## Applying to Mission-Driven AI Work
+
+A similar workflow could help a mission-driven organization organize large amounts of unstructured text, such as public comments, intake requests, support tickets, community feedback, incident notes, training questions, or program documents.
+
+For example, a nonprofit or public-interest team could use a classifier like this to separate urgent requests from general comments, identify common themes in community feedback, or route technical questions to the right staff member. The important lesson from this project is that AI classification should not be trusted automatically. A useful workflow needs clear labels, validation checks, baseline comparison, confidence thresholds, and human review when the model is uncertain.
+
+This project connects AI security with practical service delivery: the same habits used to evaluate a security classifier — checking errors, reviewing edge cases, documenting limitations, and escalating uncertain outputs — are also important when using AI inside organizations that serve real people.
 
 ## Repository Contents
 
@@ -920,6 +942,29 @@ The model’s confidence scores were clustered between about 0.28 and 0.37. This
 A practical improvement would be to add a confidence threshold. For example, if the model confidence is below 0.60, the system could send the example to a human reviewer instead of automatically accepting the label.
 
 This would make the classifier safer to use because uncertain predictions would be flagged instead of silently trusted.
+
+## Practical Deployment Considerations
+
+I would not deploy this fine-tuned classifier as an automatic decision-making system in its current form. The model’s test accuracy was too low, and its confidence scores were clustered in a range that suggested uncertainty. In a production workflow, I would treat this model as a draft assistant.
+
+A safer version would include:
+
+1. A confidence threshold, such as routing predictions below 0.60 to a human reviewer.
+2. A human review queue for categories that affect safety, access, or prioritization.
+3. Better class balance, especially for `attack_or_testing_tactic` and `low_signal_or_general`.
+4. Contrast-pair examples where similar wording leads to different labels.
+5. A stronger evaluation set with more realistic edge cases.
+6. Clear documentation explaining what the model can and cannot do.
+
+The broader lesson is that AI tools are most useful when they are designed as part of a workflow. The model should help people sort, review, and understand information faster, but the system still needs human judgment, transparency, and safeguards when the output is uncertain.
+
+## Summary
+
+I built a small AI system that tries to sort AI security discussions into four categories: explanations, tools or controls, attack/testing tactics, and low-signal comments. I then tested whether a small fine-tuned model could do this better than a stronger AI model using only instructions.
+
+The result was useful because the fine-tuned model did not perform well enough to trust. It mostly predicted two categories and missed important attack/testing and low-signal examples. Instead of treating that as a failure to hide, I used it to study where the model broke down and what would need to change before using a similar workflow in a real setting.
+
+The main takeaway is that building with AI is about defining the problem clearly, testing the output, noticing failure patterns, and designing a workflow where people stay involved when the model is uncertain.
 
 ## Final Thoughts
 
