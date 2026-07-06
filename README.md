@@ -1,6 +1,6 @@
 # AI Security Discussion Classifier
 
-Author: [Ryan DeJong](https://github.com/ryandej)
+Author: [Ryan DeJong](https://github.com/ryandej) for [CodePath.org](https://github.com/codepath)
 
 ## Reviewer TL;DR
 
