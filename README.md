@@ -824,22 +824,27 @@ The most useful part of the project was the failure analysis. The confusion matr
 
 The project also showed the value of dataset validation. Small CSV errors, duplicate examples, short rows, or label mismatches can create problems later in the notebook. Building and using a validation script made the project more reliable.
 
-## AI Tool Usage and Human Review
+## Claude, AI Tool Usage, and Human Review
 
-I used AI assistance during this project, but I did not accept AI output automatically. I used it as a support tool for brainstorming, drafting, debugging, and analysis, while making the final project decisions myself.
+I used Claude as my primary AI assistant during this project, but I did not accept AI output automatically. I used Claude as a support tool for brainstorming, drafting, debugging, documentation review, and analysis while keeping final responsibility for the project decisions myself.
 
-| Area | How AI Helped | What I Reviewed, Revised, or Overrode |
+A Groq-hosted LLM was also used as part of the technical workflow as a baseline model for comparison against the fine-tuned DistilBERT classifier.
+
+| Area | How Claude or AI Helped | What I Reviewed, Revised, or Overrode |
 |---|---|---|
-| Topic selection | Helped brainstorm possible TakeMeter communities and classification tasks. | I chose AI Security Engineering because it aligned with my cybersecurity and AI interests. |
-| Label taxonomy | Suggested possible label names and edge-case rules. | I revised the labels to avoid vague categories like “good” or “bad” and chose labels tied to AI security knowledge type. |
-| Dataset creation | Helped structure CSV rows and labeling notes. | I reviewed the labels, kept the four-label taxonomy consistent, and used validation checks before training. |
-| Validation script | Helped draft the Python validator. | I tested the script locally and used it repeatedly while expanding the dataset. |
-| Colab notebook workflow | Helped identify which starter notebook cells needed editing. | I ran the notebook myself, confirmed outputs, and used the actual metrics in the README. |
-| Evaluation analysis | Helped interpret the confusion matrix and wrong predictions. | I based the final analysis on the actual model outputs, not on expected or ideal results. |
-| README drafting | Helped organize the final report. | I revised the README to make it clearer for course review, public GitHub use, and recruiter review. |
-| Demo script | Helped turn the project results into a short spoken explanation. | I adjusted the script to sound natural and to explain the project in plain language. |
+| Topic selection | Claude helped brainstorm possible TakeMeter communities and classification tasks. | I chose AI Security Engineering because it aligned with my cybersecurity and AI interests. |
+| Label taxonomy | Claude helped suggest possible label names and edge-case rules. | I revised the labels to avoid vague categories like “good” or “bad” and chose labels tied to AI security knowledge type. |
+| Dataset creation | Claude helped structure CSV rows, labeling notes, and consistency checks. | I reviewed the labels, kept the four-label taxonomy consistent, and used validation checks before training. |
+| Validation script | Claude helped draft and troubleshoot the Python validation workflow. | I tested the script locally and used it repeatedly while expanding the dataset. |
+| Colab notebook workflow | Claude helped identify which starter notebook cells needed editing and how to interpret the workflow. | I ran the notebook myself, confirmed the outputs, and used the actual metrics in the README. |
+| Baseline comparison | A Groq-hosted LLM baseline helped compare prompted model performance against the fine-tuned model. | I treated the baseline as an evaluation reference point, not as proof that the task was solved. |
+| Evaluation analysis | Claude helped interpret the confusion matrix, wrong predictions, and likely failure patterns. | I based the final analysis on the actual model outputs, not on expected or ideal results. |
+| README drafting | Claude helped organize the final report and make the explanation clearer. | I revised the README to make it useful for course review, public GitHub use, and recruiter review. |
+| Demo script | Claude helped turn the project results into a short spoken explanation. | I adjusted the script to sound natural and to explain the project in plain language. |
 
-The most important human decision was keeping the negative result instead of hiding it. The fine-tuned model underperformed the stronger AI baseline, and I documented that honestly because the failure pattern was useful evidence about model reliability.
+The fine-tuned model underperformed the stronger AI baseline, and I documented that honestly because the failure pattern was useful evidence about model reliability.
+
+This project reinforced that AI tools are most useful when they support a human-led workflow. Claude helped me move faster and communicate more clearly, but the important work was still defining the task, checking the data, evaluating the outputs, and deciding what safeguards would be needed before using a similar system in a real organization.
 
 ## Reproduction Steps
 
