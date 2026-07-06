@@ -1,6 +1,6 @@
 # AI Security Discussion Classifier
 
-Author: [Ryan DeJong](https://www.linkedin.com/in/ryscde/)
+Author: [Ryan DeJong](https://github.com/ryandej)
 
 ## Overview
 
@@ -824,7 +824,7 @@ The most important human decision was keeping the negative result instead of hid
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/abajinn1/aisec-takemeter-ryan-dejong.git
+git clone https://github.com/ryandej/aisec-takemeter-ryan-dejong.git
 cd aisec-takemeter-ryan-dejong
 ```
 
